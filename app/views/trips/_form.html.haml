@@ -1,20 +1,20 @@
-= form_for @trip, html: { class: "form form-horizontal trip" } do |f|
+= simple_form_for @trip, html: { class: "form form-horizontal trip" } do |f|
   .form-group
     = f.label :started_at, class: 'control-label col-lg-2'
     .col-lg-10
-      = f.text_field :started_at, class: 'form-control', required: true
+      = f.input :started_at, as: :date, class: 'form-control', required: true
     = f.error_span(:started_at)
   .form-group
     = f.label :ended_at, class: 'control-label col-lg-2'
     .col-lg-10
-      = f.text_field :ended_at, class: 'form-control', required: true
+      = f.input :ended_at, as: :date, class: 'form-control', required: true
     = f.error_span(:ended_at)
   .form-group
     = f.label :destination, class: 'control-label col-lg-2'
     .col-lg-10
-      = f.text_field :destination, class: 'form-control', required: true
+      = f.input :destination, class: 'form-control', required: true
     = f.error_span(:destination)
   .form-group
     .col-lg-offset-2.col-lg-10
-      = f.submit nil,class: 'btn btn-primary'
+      = f.button :submit,class: 'btn btn-primary'
       = link_to t('.cancel', :default => t("helpers.links.cancel")), trips_path, :class => 'btn btn-default'

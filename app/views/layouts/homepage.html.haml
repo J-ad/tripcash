@@ -18,20 +18,7 @@
       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"
 
 
-  %body
-    .navbar.navbar-default.navbar-static-top
-      .container
-        %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-        %a.navbar-brand(href="#") Tripcash
-        .navbar-collapse.collapse.navbar-responsive-collapse
-          %ul.nav.navbar-nav
-            %li= link_to "Stwórz nowy wyjazd", new_trip_path
-            %li= link_to "Logowanie", new_user_session_path
-            %li= link_to "Zobacz listę wyjazdów", trips_path
-            %li= link_to "Sprawdź ludzi", members_path
 
+    = render 'top_menu'
     = render 'sidebar'
     = render 'footer'
