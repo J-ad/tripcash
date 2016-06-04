@@ -69,6 +69,6 @@ class ExpencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expence_params
-      params.fetch(:expence, {})
+      params.require(:expence).permit(:ammount, :member, :title)
     end
 end
