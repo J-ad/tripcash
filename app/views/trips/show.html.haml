@@ -2,6 +2,18 @@
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.titleize
 
+%p
+  %strong= model_class.human_attribute_name(:started_at) + ':'
+  %br
+  = @trip.started_at
+%p
+  %strong= model_class.human_attribute_name(:ended_at) + ':'
+  %br
+  = @trip.ended_at
+%p
+  %strong= model_class.human_attribute_name(:destination) + ':'
+  %br
+  = @trip.destination
 
 
 = link_to t('.back', :default => t("helpers.links.back")), trips_path, :class => 'btn btn-default'

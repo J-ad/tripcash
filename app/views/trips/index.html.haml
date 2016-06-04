@@ -5,12 +5,18 @@
   %thead
     %tr
       %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:started_at)
+      %th= model_class.human_attribute_name(:ended_at)
+      %th= model_class.human_attribute_name(:destination)
       %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
     - @trips.each do |trip|
       %tr
         %td= link_to trip.id, trip_path(trip)
+        %td= trip.started_at
+        %td= trip.ended_at
+        %td= trip.destination
         %td=l trip.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_trip_path(trip), :class => 'btn btn-default btn-xs'
