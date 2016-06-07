@@ -1,6 +1,6 @@
 - model_class = Trip
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.titleize
+  %h1= @trip.destination
 
 %p
   %strong= model_class.human_attribute_name(:started_at) + ':'
@@ -17,9 +17,7 @@
 %p
   %strong= Trip.human_attribute_name(:members) + ":"
   %br
-  - @trip.members.each do |member|
-    %p
-      = member.name
+  = render @trip.members
   .member-actions
     = render 'members/new', trip: @trip
 

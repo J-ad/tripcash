@@ -1,7 +1,9 @@
-= form_for ([@trip, Member.new, remote: true]) do |f|
+= form_for ([@trip, Member.new]) do |f|
   .form-group
     .col-lg-offset-2.col-lg-10
       = f.text_field :name
+      = f.text_field :last_name
     .col-lg-offset-2.col-lg-10
-      = f.button :submit ,class: 'btn btn-primary'
+      = f.label 'dodaj uczestnika'
+      = f.button  :submit ,class: 'btn btn-primary'
 
