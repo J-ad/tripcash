@@ -14,6 +14,15 @@
   %strong= model_class.human_attribute_name(:destination) + ':'
   %br
   = @trip.destination
+%p
+  %strong= Trip.human_attribute_name(:members) + ":"
+  %br
+  - @trip.members.each do |member|
+    %p
+      = member.name
+  .member-actions
+    = render 'members/new', trip: @trip
+
 
 
 = link_to t('.back', :default => t("helpers.links.back")), trips_path, :class => 'btn btn-default'

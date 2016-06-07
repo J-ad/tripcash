@@ -25,6 +25,8 @@ class ExpencesController < ApplicationController
   # POST /expences.json
   def create
     @expence = Expence.new(expence_params)
+    # @trip = Trip.find_by_token(params[:trip_id])
+    # @user = User.find_by_token(params[:user_id])
 
     respond_to do |format|
       if @expence.save

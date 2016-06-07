@@ -7,25 +7,23 @@ class TripsController < ApplicationController
     @trips = Trip.all
   end
 
-  # GET /trips/1
-  # GET /trips/1.json
   def show
+    @trip = Trip.find(params[:id])
+    @members = @trip.members
   end
 
-  # GET /trips/new
   def new
     @trip = Trip.new
+    @member = @trip.members.new
   end
 
-  # GET /trips/1/edit
   def edit
   end
 
-  # POST /trips
-  # POST /trips.json
   def create
-    @trip = Trip.new(trip_params)
-
+    @member = Member.create(trip_params[:member])
+    @trip = Trip.create(trip_params)
+    # @trip.member = @member
     respond_to do |format|
       if @trip.save
         format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
@@ -37,8 +35,6 @@ class TripsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /trips/1
-  # PATCH/PUT /trips/1.json
   def update
     respond_to do |format|
       if @trip.update(trip_params)
@@ -69,6 +65,6 @@ class TripsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
-      params.require(:trip).permit(:destination, :started_at, :ended_at)
+      params.require(:trip).permit(:destination, :started_at, :ended_at, :name, :member)
     end
 end

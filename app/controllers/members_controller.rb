@@ -1,20 +1,12 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
-  # GET /members
-  # GET /members.json
   def index
     @members = Member.all
   end
 
-  # GET /members/1
-  # GET /members/1.json
-  def show
-  end
-
-  # GET /members/new
   def new
-    @member = Member.new
+    @member = Member.new(member_params)
   end
 
   # GET /members/1/edit
@@ -25,10 +17,10 @@ class MembersController < ApplicationController
   # POST /members.json
   def create
     @member = Member.new(member_params)
-
+    @member.trip_id = params[:trip_id]
     respond_to do |format|
       if @member.save
-        format.html { redirect_to @member, notice: 'Member was successfully created.' }
+        format.html { render @member, notice: 'Member was successfully created.' }
         format.json { render :show, status: :created, location: @member }
       else
         format.html { render :new }
@@ -70,6 +62,6 @@ class MembersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
       # params.fetch(:member, {})
-      params.require(:member).permit(:name, :lastname)
+      params.require(:member).permit(:name, :lastname, :trip_id)
     end
 end
