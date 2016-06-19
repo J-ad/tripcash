@@ -15,6 +15,11 @@
       = f.input :destination, class: 'form-control', required: true
     = f.error_span(:destination)
   .form-group
+    = f.fields_for @trip.members do |f|
+      = f.input :name, class: 'form-control', required: true
+    = f.error_span(:member)
+  .form-group
     .col-lg-offset-2.col-lg-10
       = f.button :submit,class: 'btn btn-primary'
       = link_to t('.cancel', :default => t("helpers.links.cancel")), trips_path, :class => 'btn btn-default'
+

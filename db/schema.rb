@@ -11,11 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160604203421) do
+ActiveRecord::Schema.define(version: 20160619133455) do
 
   create_table "expences", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "member_id"
+    t.integer  "trip_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -24,14 +26,27 @@ ActiveRecord::Schema.define(version: 20160604203421) do
     t.string   "name"
     t.string   "last_name"
     t.string   "thumbnail"
+    t.integer  "user_id"
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.integer  "member_id"
+    t.integer  "trip_id"
+    t.boolean  "admin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_participations_on_member_id"
+    t.index ["trip_id"], name: "index_participations_on_trip_id"
   end
 
   create_table "trips", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.date     "started_at"
     t.date     "ended_at"
     t.string   "destination"
+    t.integer  "member_id"
+    t.integer  "member_count"
   end
 
   create_table "users", force: :cascade do |t|
