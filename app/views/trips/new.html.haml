@@ -1,4 +1,29 @@
-- model_class = Trip
 .page-header
-  %h1=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize
-= render :partial => "form"
+  %h1 Create New Trip
+= simple_form_for @trip, html: { class: "form form-horizontal trip" } do |f|
+  .form-group
+    = f.label :started_at, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.input :started_at, as: :date, class: 'form-control', required: true
+    = f.error_span(:started_at)
+  .form-group
+    = f.label :ended_at, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.input :ended_at, as: :date, class: 'form-control', required: true
+    = f.error_span(:ended_at)
+  .form-group
+    = f.label :destination, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.input :destination, class: 'form-control', required: true
+    = f.error_span(:destination)
+  .form-group
+    = f.label :member_count, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.input :member_count, class: 'form-control', required: true
+    = f.error_span(:member_count)
+
+  = f.error_span(:member)
+  .form-group
+    .col-lg-offset-2.col-lg-10
+      = f.button :submit,class: 'btn btn-primary'
+      = link_to t('.cancel', :default => t("helpers.links.cancel")), trips_path, :class => 'btn btn-default'

@@ -21,9 +21,7 @@ class TripsController < ApplicationController
   end
 
   def create
-    @member = Member.create(trip_params[:member])
     @trip = Trip.create(trip_params)
-    # @trip.member = @member
     respond_to do |format|
       if @trip.save
         format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
@@ -58,13 +56,14 @@ class TripsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_trip
-      @trip = Trip.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def trip_params
-      params.require(:trip).permit(:destination, :started_at, :ended_at, :name, :member)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_trip
+    @trip = Trip.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def trip_params
+    params.require(:trip).permit(:destination, :started_at, :ended_at, :name, :member_count)
+  end
 end

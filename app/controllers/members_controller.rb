@@ -16,11 +16,11 @@ class MembersController < ApplicationController
   # POST /members
   # POST /members.json
   def create
-    @member = Member.new(member_params)
-    @member.trip_id = params[:trip_id]
+    @trip = Trip.find(params[:trip_id])
+    @member = @trip.members.create(member_params)
     respond_to do |format|
       if @member.save
-        format.html { render @member, notice: 'Member was successfully created.' }
+        format.html { redirect_to @trip, notice: 'Member was successfully created.' }
         format.json { render :show, status: :created, location: @member }
       else
         format.html { render :new }
@@ -54,14 +54,15 @@ class MembersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_member
-      @member = Member.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def member_params
-      # params.fetch(:member, {})
-      params.require(:member).permit(:name, :last_name, :trip_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_member
+    @member = Member.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def member_params
+    # params.fetch(:member, {})
+    params.require(:member).permit(:name, :last_name)
+  end
 end
