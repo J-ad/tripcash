@@ -18,7 +18,7 @@
         %td= trip.destination
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_trip_path(trip), :class => 'btn btn-default btn-xs'
-          = link_to t('.show', :default => t("helpers.links.edit")), trip_path(trip), :class => 'btn btn-default btn-xs'
+          = link_to t('.show', :default => t("helpers.links.show")), trip_path(trip), :class => 'btn btn-default btn-xs'
           = link_to t('.destroy', :default => t("helpers.links.destroy")), trip_path(trip), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
 
 = link_to t('.new', :default => t("helpers.links.new")), new_trip_path, :class => 'btn btn-primary'

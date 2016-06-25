@@ -1,0 +1,13 @@
+= simple_form_for ([@trip, member, Expence.new]) do |f|
+  = f.input :ammount
+  = f.input :what_for
+  = f.button :submit, :class => 'btn-primary'
+  -# # = link_to t('.cancel', :default => t("helpers.links.cancel")), trip_member_expences_path, :class => 'btn btn-default'
+
+  -# # = simple_form_for ([@trip, Member.new]) do |f|
+    .form-group
+      .row.col-xs-4
+        = f.input :name
+        = f.input :last_name
+      .col-lg-offset-2.col-lg-10
+        = f.submit  'dodaj uczestnika' ,class: 'btn btn-primary'
