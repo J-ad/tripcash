@@ -21,7 +21,6 @@ class ExpencesController < ApplicationController
     @expence = Expence.new(expence_params)
     @expence.trip_id = @trip.id
     @expence.member_id = @member.id
-    binding.pry
     respond_to do |format|
       if @expence.save
         format.html { redirect_to @trip, notice: 'Expence was successfully created.' }
