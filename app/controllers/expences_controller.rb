@@ -16,13 +16,13 @@ class ExpencesController < ApplicationController
   end
 
   def create
+    @trip = Trip.find_by(id: params[:trip_id])
+    @member = Member.find_by(id: params[:member_id])
     @expence = Expence.new(expence_params)
-    @trip = Trip.find_by_token(params[:trip_id])
-    @member = Member.find_by_token(params[:member_id])
 
     respond_to do |format|
       if @expence.save
-        format.html { redirect_to @expence, notice: 'Expence was successfully created.' }
+        format.html { redirect_to @trip, notice: 'Expence was successfully created.' }
         format.json { render :show, status: :created, location: @expence }
       else
         format.html { render :new }
@@ -57,6 +57,6 @@ class ExpencesController < ApplicationController
     end
 
     def expence_params
-      params.require(:expence).permit(:ammount, :member, :title)
+      params.require(:expence).permit(:ammount, :member, :member_id, :what_for, :trip_id)
     end
 end
