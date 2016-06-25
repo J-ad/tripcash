@@ -19,7 +19,9 @@ class ExpencesController < ApplicationController
     @trip = Trip.find_by(id: params[:trip_id])
     @member = Member.find_by(id: params[:member_id])
     @expence = Expence.new(expence_params)
-
+    @expence.trip_id = @trip.id
+    @expence.member_id = @member.id
+    binding.pry
     respond_to do |format|
       if @expence.save
         format.html { redirect_to @trip, notice: 'Expence was successfully created.' }
