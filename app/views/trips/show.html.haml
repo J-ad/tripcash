@@ -20,6 +20,8 @@
     %br
       = member.name
       = member.last_name
+    %br
+      = member.sum_expences(@trip.id)
       = render 'expences/new', trip: @trip, member: member
 
 %p
