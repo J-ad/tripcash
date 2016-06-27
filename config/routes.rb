@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   root 'homepage#index'
 
   resources :trips do
-    resources :members
-    resources :expences
+    resources :members do
+      resources :expences
+    end
   end
 end

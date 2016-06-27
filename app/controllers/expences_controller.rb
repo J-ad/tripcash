@@ -1,36 +1,29 @@
 class ExpencesController < ApplicationController
   before_action :set_expence, only: [:show, :edit, :update, :destroy]
 
-  # GET /expences
-  # GET /expences.json
   def index
     @expences = Expence.all
   end
 
-  # GET /expences/1
-  # GET /expences/1.json
   def show
   end
 
-  # GET /expences/new
   def new
     @expence = Expence.new
   end
 
-  # GET /expences/1/edit
   def edit
   end
 
-  # POST /expences
-  # POST /expences.json
   def create
+    @trip = Trip.find_by(id: params[:trip_id])
+    @member = Member.find_by(id: params[:member_id])
     @expence = Expence.new(expence_params)
-    # @trip = Trip.find_by_token(params[:trip_id])
-    # @user = User.find_by_token(params[:user_id])
-
+    @expence.trip_id = @trip.id
+    @expence.member_id = @member.id
     respond_to do |format|
       if @expence.save
-        format.html { redirect_to @expence, notice: 'Expence was successfully created.' }
+        format.html { redirect_to @trip, notice: 'Expence was successfully created.' }
         format.json { render :show, status: :created, location: @expence }
       else
         format.html { render :new }
@@ -39,8 +32,6 @@ class ExpencesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /expences/1
-  # PATCH/PUT /expences/1.json
   def update
     respond_to do |format|
       if @expence.update(expence_params)
@@ -53,8 +44,6 @@ class ExpencesController < ApplicationController
     end
   end
 
-  # DELETE /expences/1
-  # DELETE /expences/1.json
   def destroy
     @expence.destroy
     respond_to do |format|
@@ -64,13 +53,11 @@ class ExpencesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_expence
       @expence = Expence.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def expence_params
-      params.require(:expence).permit(:ammount, :member, :title)
+      params.require(:expence).permit(:ammount, :member, :member_id, :what_for, :trip_id)
     end
 end
