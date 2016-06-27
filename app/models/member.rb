@@ -16,4 +16,8 @@ class Member < ApplicationRecord
     end
     sum
   end
+
+  def full_name
+    self.name + " " + self.last_name
+  end
 end

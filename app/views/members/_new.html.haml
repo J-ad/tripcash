@@ -1,8 +1,8 @@
 = simple_form_for ([@trip, Member.new]) do |f|
   .form-group
-    .row.col-xs-4
+    .form-row
       = f.input :name
       = f.input :last_name
-    .col-lg-offset-2.col-lg-10
+    .col
       = f.submit  'dodaj uczestnika' ,class: 'btn btn-primary'
 

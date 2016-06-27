@@ -1,16 +1,15 @@
-- model_class = Trip
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+  %h1=t '.title', :default => Trip.model_name.human.pluralize.titleize
 %table.table.table-striped
   %thead
     %tr
-      %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:started_at)
-      %th= model_class.human_attribute_name(:ended_at)
-      %th= model_class.human_attribute_name(:destination)
+      %th= Trip.human_attribute_name(:id)
+      %th= Trip.human_attribute_name(:started_at)
+      %th= Trip.human_attribute_name(:ended_at)
+      %th= Trip.human_attribute_name(:destination)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
-    - @trips.each do |trip|
+    -  @trips.each do |trip|
       %tr
         %td= link_to trip.id, trip_path(trip)
         %td= trip.started_at

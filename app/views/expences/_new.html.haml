@@ -1,4 +1,7 @@
 = simple_form_for ([@trip, member, Expence.new]) do |f|
-  = f.input :ammount, class: 'col-4'
-  = f.input :what_for
-  = f.button :submit, :class => 'btn-primary'
+  .form-group
+    .form-row
+      = f.input :ammount
+      = f.input :what_for
+    .form-row
+      = f.button :submit, :class => 'btn-primary'

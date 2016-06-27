@@ -3,4 +3,13 @@ class Trip < ApplicationRecord
   has_many :expences
   has_many :participations
   has_many :members, through: :participations
+
+  def sum_expences
+    trip_expences = self.expences
+    sum = 0
+    trip_expences.each do |e|
+      sum += e.ammount
+    end
+    sum
+  end
 end

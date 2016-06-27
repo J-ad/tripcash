@@ -4,7 +4,8 @@ class TripsController < ApplicationController
   # GET /trips
   # GET /trips.json
   def index
-    @trips = Trip.all
+    @trips = Trip.page(params[:page]).order('created_at DESC')
+    # Post.page(params[:page]).order('created_at DESC')
   end
 
   def show
