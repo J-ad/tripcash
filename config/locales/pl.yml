@@ -1,4 +1,9 @@
-en:
+pl:
+  date:
+    order:
+      - :day
+      - :month
+      - :year
   activerecord:
     attributes:
       trip:
@@ -9,7 +14,6 @@ en:
     models:
       trip:
         one: Wyjazd
-        many: Wyjazdy
         other: Wyjazdy
         started_at: Start
         ended_at: Koniec
@@ -17,3 +21,4 @@ en:
         one: Wydatek
         other: Wydatki
         ammount: Ile
+

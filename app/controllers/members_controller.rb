@@ -23,7 +23,7 @@ class MembersController < ApplicationController
         format.html { redirect_to @trip, notice: 'Member was successfully created.' }
         format.json { render :show, status: :created, location: @member }
       else
-        format.html { render :new }
+        format.html { redirect_to @trip, error: 'Musisz podać imie i nazwisko!' }
         format.json { render json: @member.errors, status: :unprocessable_entity }
       end
     end

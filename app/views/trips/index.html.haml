@@ -1,20 +1,23 @@
 .page-header
-  %h1=t '.title', :default => Trip.model_name.human.pluralize.titleize
+  .h1
+    =t '.title', :default => Trip.human_attribute_name(:trips)
+    = link_to '+', new_trip_path, class: 'mdl-button mdl-js-button mdl-button--fab mdl-button--colored'
+    -# do
+      %i.glyphicon.glyphicon-user
+      Add user
 %table.table.table-striped
   %thead
     %tr
-      %th= Trip.human_attribute_name(:id)
+      %th= Trip.human_attribute_name(:destination)
       %th= Trip.human_attribute_name(:started_at)
       %th= Trip.human_attribute_name(:ended_at)
-      %th= Trip.human_attribute_name(:destination)
-      %th=t '.actions', :default => t("helpers.actions")
+      %th=t '.actions', default: t("helpers.actions")
   %tbody
     -  @trips.each do |trip|
       %tr
-        %td= link_to trip.id, trip_path(trip)
+        %td= link_to trip.destination, trip_path(trip), class: 'btn btn-default btn-xs'
         %td= trip.started_at
         %td= trip.ended_at
-        %td= trip.destination
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_trip_path(trip), :class => 'btn btn-default btn-xs'
           = link_to t('.show', :default => t("helpers.links.show")), trip_path(trip), :class => 'btn btn-default btn-xs'

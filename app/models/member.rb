@@ -3,6 +3,7 @@ class Member < ApplicationRecord
   has_many :participations
   has_many :trips, through: :participations
   has_many :expences
+  validates_presence_of :name, :last_name
 
   def trip_expences(id)
     self.expences.where(trip_id: id)

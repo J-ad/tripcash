@@ -1,4 +1,4 @@
-en:
+pl:
   breadcrumbs:
     application:
       root: Index
@@ -13,7 +13,6 @@ en:
       destroy: Usuń
       new: Nowy
       edit: Edytuj
-      show: Pokaż
     titles:
       edit: "Edytuj %{model}"
       save: "Zapisz %{model}"
@@ -21,4 +20,3 @@ en:
       show: Pokaż
       new: "Nowy %{model}"
       delete: "Usuń %{model}"
-

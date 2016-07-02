@@ -1,24 +1,26 @@
-en:
+pl:
   simple_form:
-    "yes": 'Yes'
-    "no": 'No'
+    "yes": 'Tak'
+    "no": 'Nie'
     required:
-      text: 'required'
+      text: 'wymagne'
       mark: ''
+      started_at: 'test'
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
     # Examples
-    # labels:
-    #   defaults:
-    #     password: 'Password'
-    #   user:
-    #     new:
-    #       email: 'E-mail to sign in.'
-    #     edit:
-    #       email: 'E-mail.'
+    labels:
+      defaults:
+        password: 'Password'
+      expence:
+        ammount: 'Ile'
+        what_for: 'Za co'
+        #   email: 'E-mail to sign in.'
+        # edit:
+        #   email: 'E-mail.'
     # hints:
     #   defaults:
     #     username: 'User name to sign in.'
