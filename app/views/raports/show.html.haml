@@ -22,6 +22,6 @@
         %td= member.sum_expences(@trip.id) - @trip.average_expences
 
     = link_to t('.back', :default => t("helpers.links.back")), trip_path(@trip), :class => 'btn btn-default'
-    = link_to t('.edit', :default => t("helpers.links.edit")), trip_path(@trip), :class => 'btn btn-default'
+    = link_to t('.edit', :default => t("helpers.links.edit")), edit_trip_path(@trip), :class => 'btn btn-default'
 
 

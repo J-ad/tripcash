@@ -6,6 +6,6 @@ Rails.application.routes.draw do
     resources :members do
       resources :expences
     end
-    resources :raports
+    resources :raports, only: :show
   end
 end

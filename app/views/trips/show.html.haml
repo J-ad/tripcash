@@ -1,33 +1,33 @@
 .page-header
   .trip-decription
     %h1= @trip.destination
+    .row.col-xs-4
+      = link_to(t('.edit', default: t("helpers.links.edit")), edit_trip_path(@trip), class: 'btn btn-default')
+      = link_to("Podsumowanie", trip_raport_path(@trip), class: 'btn btn-default')
     %strong Start:
     = @trip.started_at
     %strong Koniec:
     = @trip.ended_at
     %strong Total wydatki:
     = @trip.sum_expences
-    .row.col-xs-4
-      = link_to t('.back', :default => t("helpers.links.back")), trips_path, :class => 'btn btn-default'
-      = link_to t('.edit', :default => t("helpers.links.edit")), edit_trip_path(@trip), :class => 'btn btn-default'
-      = link_to t('.destroy', :default => t("helpers.links.destroy")), trip_path(@trip), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
-.form-row
-  %strong= Trip.human_attribute_name(:members) + ":"
-  %br
-  - @trip.members.each do |member|
+.center-form
+  .form-row
+    %strong= Trip.human_attribute_name(:members) + ":"
     %br
-      = member.full_name + ","
-      Wydał:
-      %strong= member.sum_expences(@trip.id)
-      = render 'expences/new', trip: @trip, member: member
+    - @trip.members.each do |member|
+      %br
+        = member.full_name + ","
+        Wydał:
+        %strong= member.sum_expences(@trip.id)
+        = render 'expences/new', trip: @trip, member: member
 
-.form-row
-  .member-actions
-    %strong
-      Dodaj nowego membera:
-    = render 'members/new', trip: @trip
-.form-row
-  .member-actions
-    %strong
-      = link_to("Pokaż podsumowanie wyjazdu", trip_raport_path(@trip))
+  .form-row
+    .member-actions
+      %strong
+        Dodaj nowego membera:
+      = render 'members/new', trip: @trip
+  .form-row
+    .member-actions
+      %strong
+        = link_to("Pokaż podsumowanie wyjazdu", trip_raport_path(@trip))
 
