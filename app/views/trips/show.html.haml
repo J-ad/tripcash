@@ -16,9 +16,9 @@
   %br
   - @trip.members.each do |member|
     %br
-      = member.full_name
-      %strong Wydał:
-      = member.sum_expences(@trip.id)
+      = member.full_name + ","
+      Wydał:
+      %strong= member.sum_expences(@trip.id)
       = render 'expences/new', trip: @trip, member: member
 
 .form-row
@@ -26,4 +26,8 @@
     %strong
       Dodaj nowego membera:
     = render 'members/new', trip: @trip
+.form-row
+  .member-actions
+    %strong
+      = link_to("Pokaż podsumowanie wyjazdu", trip_raport_path(@trip))
 

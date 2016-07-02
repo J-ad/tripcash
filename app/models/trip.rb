@@ -12,4 +12,9 @@ class Trip < ApplicationRecord
     end
     sum
   end
+
+  def average_expences
+    member_count = self.members.count
+    sum_expences/member_count
+  end
 end

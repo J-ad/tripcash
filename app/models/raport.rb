@@ -1,0 +1,2 @@
+class Raport < ApplicationRecord
+end
