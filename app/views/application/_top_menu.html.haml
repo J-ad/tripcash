@@ -8,3 +8,22 @@
           %li= link_to("Nowy wyjazd", new_trip_path)
           %li= link_to("Zobacz listę wyjazdów", trips_path)
           %li= link_to("Logowanie", new_user_session_path)
+-# %body
+  .mdl-layout.mdl-js-layout
+    %header.mdl-layout__header
+      .mdl-layout__header-row
+        .navbar-brand.nav.navbar-nav
+          = link_to("Tripcash", root_path)
+        .navbar-collapse.collapse
+          = link_to new_trip_path, class: 'mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--raised' do
+            %i.material-icons add
+          %ul.mdl-navigation
+            %button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored= link_to("Nowy wyjazd", new_trip_path)
+            %li.mdl-navigation__link= link_to("Zobacz listę wyjazdów", trips_path)
+            %li.mdl-navigation__link= link_to("Logowanie", new_user_session_path)
+    .mdl-layout__drawer
+      %span.mdl-layout-title Title
+      %nav.mdl-navigation
+        %a.mdl-navigation__link= link_to("Nowy wyjazd", new_trip_path)
+        %a.mdl-navigation__link= link_to("Zobacz listę wyjazdów", trips_path)
+        %a.mdl-navigation__link= link_to("Logowanie", new_user_session_path)

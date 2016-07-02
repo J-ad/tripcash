@@ -2,18 +2,7 @@ en:
   activerecord:
     attributes:
       trip:
-        started_at: Start
-        ended_at: Koniec
-        destination: Gdzie?
-        trips: Wyjazdy
-    models:
-      trip:
-        one: Wyjazd
-        many: Wyjazdy
-        other: Wyjazdy
-        started_at: Start
-        ended_at: Koniec
-      expence:
-        one: Wydatek
-        other: Wydatki
-        ammount: Ile
+        started_at: Started at
+        ended_at: Ended at
+        destination: Destination
+        trips: Trips
