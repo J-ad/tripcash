@@ -1,8 +1,9 @@
 .page-header
-  .h1
-    =t '.title', :default => Trip.human_attribute_name(:trips)
+  .h1.continer.row
+    Tripy
     = link_to new_trip_path, class: 'mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--raised' do
       %i.material-icons add
-    -  @trips.each do |trip|
-      =render 'trips/trip', trip: trip
+.container.row
+  - @trips.each do |trip|
+    =render 'trips/trip', trip: trip
 

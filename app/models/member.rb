@@ -6,7 +6,7 @@ class Member < ApplicationRecord
   validates_presence_of :name, :last_name
   mount_uploader :image, ImageUploader
   def trip_expences(id)
-    self.expences.where(trip_id: id)
+    expences.where(trip_id: id)
   end
 
   def sum_expences(trip_id)
@@ -19,6 +19,6 @@ class Member < ApplicationRecord
   end
 
   def full_name
-    self.name + " " + self.last_name
+    name + ' ' + last_name
   end
 end

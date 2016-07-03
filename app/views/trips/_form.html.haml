@@ -1,21 +1,33 @@
-= simple_form_for @trip, html: { class: "form form-horizontal trip" } do |f|
-  .form-group
-    = f.label :started_at, class: 'control-label col-lg-2'
-    .col-lg-10
-      = f.input :started_at, as: :date, class: 'form-control', required: true
-    = f.error_span(:started_at)
-  .form-group
-    = f.label :ended_at, class: 'control-label col-lg-2'
-    .col-lg-10
-      = f.input :ended_at, as: :date, class: 'form-control', required: true
-    = f.error_span(:ended_at)
-  .form-group
-    = f.label :destination, class: 'control-label col-lg-2'
-    .col-lg-10
-      = f.input :destination, class: 'form-control', required: true
+.page-header
+  %h3 Uzupełnij:
+= simple_form_for @trip, html: { class: "form" } do |f|
+  .col-md-4
+    = f.input :started_at,
+      label: 'Start',
+      class: 'form-control'
+  = f.error_span(:started_at)
+  .col-md-4
+    = f.input :ended_at,
+      as: :date,
+      class: 'form-control',
+      label: 'Koniec'
+  = f.error_span(:ended_at)
+  .col-md-4
+    .mdl-textfield.mdl-js-textfield
+      = f.input :destination,
+        class: 'mdl-textfield__input'
     = f.error_span(:destination)
+  .col-md-4
+    = f.input :image, as: :file,
+      class: 'form-control',
+      label: 'cover photo'
+  = f.error_span(:destination)
+
   .form-group
     .col-lg-offset-2.col-lg-10
       = f.button :submit,class: 'btn btn-primary'
-      = link_to t('.cancel', :default => t("helpers.links.cancel")), trips_path, :class => 'btn btn-default'
+      = link_to t('.cancel', default: t("helpers.links.cancel")), trips_path, :class => 'btn btn-default'
 
+.mdl-textfield.mdl-js-textfield
+  %input#sample1.mdl-textfield__input{:type => "text"}
+    %label.mdl-textfield__label{:for => "sample1"} Text...
