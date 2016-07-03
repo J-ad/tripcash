@@ -1,1 +1,10 @@
-= member.name
+.form-group
+  .form-row
+    = f.input :name,
+      label: 'Imie'
+    = f.input :last_name,
+      label: 'Nazwisko'
+    = f.input :image, as: :file,
+      label: 'Zdjęcie'
+  .col
+    = f.submit  'dodaj uczestnika' ,class: 'btn btn-primary'

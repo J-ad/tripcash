@@ -13,6 +13,8 @@ gem "twitter-bootstrap-rails"
 gem 'simple_form'
 gem 'will_paginate'
 gem 'material_design_lite-rails'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'rmagick'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

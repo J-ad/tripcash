@@ -10,6 +10,7 @@
     = @trip.ended_at
     %strong Total wydatki:
     = @trip.sum_expences
+    =image_tag @trip.image_url(:cover) if @trip.image?
 .center-form
   .form-row
     %strong= Trip.human_attribute_name(:members) + ":"

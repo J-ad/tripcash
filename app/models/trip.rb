@@ -4,6 +4,8 @@ class Trip < ApplicationRecord
   has_many :participations
   has_many :members, through: :participations
   validates_presence_of :destination
+  mount_uploader :image, ImageUploader
+
   def sum_expences
     trip_expences = self.expences
     sum = 0

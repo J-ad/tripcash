@@ -19,8 +19,13 @@
       = f.input :destination,
         class: 'form-control'
     = f.error_span(:destination)
+  .form-group
+    .col-lg-10.form-row
+      = f.input :image, as: :file,
+        class: 'form-control',
+        label: 'cover photo'
+    = f.error_span(:destination)
 
-  = f.error_span(:member)
   .form-group
     .col-lg-offset-2.col-lg-10
       = f.button :submit,class: 'btn btn-primary'
