@@ -21,6 +21,6 @@ class Trip < ApplicationRecord
   end
 
   def medium_image
-    image_url(:cover) if image?
+    image_url(:medium) if image?
   end
 end
