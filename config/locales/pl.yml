@@ -4,6 +4,8 @@ pl:
       - :day
       - :month
       - :year
+    months:
+      january: styczeń
   activerecord:
     attributes:
       trip:
