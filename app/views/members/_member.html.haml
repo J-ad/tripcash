@@ -1,2 +1,10 @@
-= member.name
-= member.last_name
+.member-card-square.mdl-card.mdl-shadow--2dp
+  .mdl-card__title.mdl-card--expand
+    %h2.mdl-card__title-text= member.full_name
+  .mdl-card__supporting-text
+    Wydał:
+    %strong= member.sum_expences(@trip.id)
+    = render 'expences/new', trip: @trip, member: member
+  .mdl-card__actions.mdl-card--border
+    %a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect
+      View Updates

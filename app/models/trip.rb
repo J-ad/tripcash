@@ -19,4 +19,8 @@ class Trip < ApplicationRecord
     member_count = self.members.count
     sum_expences/member_count
   end
+
+  def medium_image
+    image_url(:cover) if image?
+  end
 end

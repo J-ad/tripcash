@@ -1,0 +1,12 @@
+.trip-card-wide.mdl-card.mdl-shadow--2dp
+  .mdl-card__title
+    %h2.mdl-card__title-text= trip.destination
+    =image_tag trip.medium_image
+  .mdl-card__supporting-text
+    %strong początek wyjazdu:
+    = trip.started_at
+    %strong koniec:
+    = trip.ended_at
+  .mdl-card__actions.mdl-card--border
+    %a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect
+      = link_to 'Zobacz', trip_path(trip)

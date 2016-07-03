@@ -16,11 +16,7 @@
     %strong= Trip.human_attribute_name(:members) + ":"
     %br
     - @trip.members.each do |member|
-      %br
-        = member.full_name + ","
-        Wydał:
-        %strong= member.sum_expences(@trip.id)
-        = render 'expences/new', trip: @trip, member: member
+      = render 'members/member', member: member
 
   .form-row
     .member-actions
