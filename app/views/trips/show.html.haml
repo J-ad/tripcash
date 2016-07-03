@@ -13,7 +13,7 @@
     =image_tag @trip.image_url(:cover) if @trip.image?
 .center-form
   .form-row
-    %strong= Trip.human_attribute_name(:members) + ":"
+    %strong Kto tam był:
     %br
     - @trip.members.each do |member|
       = render 'members/member', member: member
